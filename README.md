@@ -114,3 +114,5 @@ chrome.runtime.onMessage.addListener(function (request){
   alert(request)
 })
 ```
+
+6. Done, doesn't send "hi" message when clicked.  Doing something else
