@@ -14,7 +14,8 @@
 2. go to chrome extensions (`chrome://extensions`) in chrome browser and enable developer mode
 3. click "load unpacked"
 4. navigate to extension directory "test_extension", and "select" to load
-5. Done.
+5. click on puzzle icon, and pin it so it shows on taskbar
+6. Done.
 
 
 ## Adding code
@@ -57,6 +58,7 @@ popup.html
 </head>
 <body>
   <button>Count Bears</button>
+  <script src="popup.js" charset="utf-8"> </script>
 </body>
 </html>
 ```
