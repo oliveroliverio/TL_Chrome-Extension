@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // use chrome api to query the current active tab
     chrome.tabs.query({currentWindow: true, active: true},
       // when query finishes, it gives all matching tabs (just one)
-      function (tabs) {
-        // send message to content script the tab ID (first one)
-        chrome.tabs.sendMessage(tabs[0].id, 'hi')
-        //jump back to content.js script
-      })
+    function (tabs) {
+      // send message to content script the tab ID (first one)
+      chrome.tabs.sendMessage(tabs[0].id, 'hi')
+      //jump back to content.js script
+    })
   }
 }, false)
