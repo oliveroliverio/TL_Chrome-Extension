@@ -37,3 +37,7 @@ Most times, extensions insert JS when you visit a website.
   ]
 }
 ```
+3. Go back to `chrome://extensions`, refresh, go to another page, look at pop.
+4. Done
+
+## More Useful code
