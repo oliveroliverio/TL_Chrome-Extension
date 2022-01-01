@@ -60,7 +60,28 @@ popup.html
 </body>
 </html>
 ```
-3. Modify popup js to send message to content script.  Onclick
+
+3. Modify manifest.json to include the popup html`
+
+```js
+{
+  "name": "test",
+  "version": "1.0",
+  "manifest_version": 2,
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "Bear"
+  }
+}
+```
+
+4. Modify popup js to send message to content script.  Onclick
 
 ```js
 document.addEventListener('DOMContentLoaded', function () {
@@ -79,7 +100,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 }, false)
 ```
-4. Modify content script
+
+5. Modify content script
 
 content.js
 ```js
