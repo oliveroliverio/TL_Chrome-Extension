@@ -41,3 +41,52 @@ Most times, extensions insert JS when you visit a website.
 4. Done
 
 ## More Useful code
+Goal: count how many times the word "bear" appears in document
+1. Make small pop up button that will count when pressed.
+2. Create `popup.html` and `popup.js`
+
+popup.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>Count Bears</button>
+</body>
+</html>
+```
+3. Modify popup js to send message to content script.  Onclick
+
+```js
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelector('button').addEventListener('click',
+  onclick, false)
+  function onclick () {
+    // need to connect to content.js script
+    // use chrome api to query the current active tab
+    chrome.tabs.query({currentWindow: true, active: true},
+      // when query finishes, it gives all matching tabs (just one)
+      function (tabs) {
+        // send message to content script the tab ID (first one)
+        chrome.tabs.sendMessage(tabs[0].id, 'hi')
+        //jump back to content.js script
+      })
+  }
+}, false)
+```
+4. Modify content script
+
+content.js
+```js
+// alert("Grrrr.")
+// use api chrome runtime
+// anytime the message is sent, this function is called, request is the message sent
+chrome.runtime.onMessage.addListener(function (request){
+  alert(request)
+})
+```
